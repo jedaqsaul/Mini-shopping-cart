@@ -79,3 +79,16 @@ function fetchCartItems() {
       });
     });
 }
+function removeFromCart(id) {
+  // problem here
+
+  fetch(`${BASE_URL}/cart/${id}`, {
+    method: "Delete",
+  })
+    .then(() => {
+      fetchCartItems(); //refresh the cart after removal
+    })
+    .catch((err) => {
+      console.error("Error removing item from cart: ", err);
+    });
+}
