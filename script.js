@@ -61,3 +61,21 @@ function toogleCart() {
 }
 
 //I have understood absolutely nothing in the toogleCart function
+function fetchCartItems() {
+  fetch(`${BASE_URL}/cart`)
+    .then((res) => res.json())
+    .then((cartItems) => {
+      const cartContainer = document.getElementById("cart-items");
+      cartContainer.innerHTML = ""; //clear previous cart
+
+      cartItems.forEach((item) => {
+        const cartDiv = document.createElement("div");
+        cartDiv.className = "cart-item";
+        cartDiv.innerHTML = `
+          <p>${item.name} - $${item.price}</p>
+          <button onclick="removeFromCart(${item.id})">Remove</button>
+          `;
+        cartContainer.appendChild(cartDiv);
+      });
+    });
+}
