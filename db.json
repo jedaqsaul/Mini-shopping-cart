@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "price": 50
+    },
+    {
+      "id": 2,
+      "name": "Bluetooth speaker",
+      "price": 30
+    },
+    {
+      "id": 3,
+      "name": "Smart watch",
+      "price": 70
+    }
+  ],
+  "cart": []
+}
