@@ -27,6 +27,7 @@ function fetchProducts() {
 }
 
 function addToCart(productId) {
+  //problems here
   // first, get the products details by Id
   fetch(`${BASE_URL}/products/${productId}`)
     .then((res) => res.json())
@@ -46,3 +47,17 @@ function addToCart(productId) {
     })
     .catch((err) => console.error("Error adding to cart: ", err));
 }
+
+function toogleCart() {
+  const cartSection = document.getElementById("cart");
+  const isVisible = cartSection.style.display === "block"; //problem here
+
+  if (isVisible) {
+    cartSection.style.display = "none";
+  } else {
+    cartSection.style.display = "block";
+    fetchCartItems();
+  }
+}
+
+//I have understood absolutely nothing in the toogleCart function
