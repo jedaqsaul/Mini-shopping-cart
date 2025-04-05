@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini shopping cart</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Mini shopping cart</h1>
+      <button onclick="toogleCart()">View Cart</button>
+    </header>
+    <!-- Product Section -->
+    <section id="products">
+      <h2>Products</h2>
+      <!-- Products will be inserted here -->
+    </section>
+
+    <!-- Cart section -->
+    <section id="cart" style="display: none">
+      <h2>Your cart</h2>
+      <div id="cart-items"></div>
+      <button onclick="checkout()">Checkout</button>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>
