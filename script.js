@@ -92,3 +92,23 @@ function removeFromCart(id) {
       console.error("Error removing item from cart: ", err);
     });
 }
+
+function checkout() {
+  fetch(`${BASE_URL}/cart`)
+    .then((res) => res.json())
+    .then((cartItems) => {
+      // delete each item one by one
+      const deletePromises = cartItems.map((item) => {
+        return fetch(`${BASE_URL}/cart/${item.id}`, {
+          method: "DELETE",
+        });
+      });
+      Promise.all(deletePromises).then(() => {
+        alert("Checkout complete! Thank you for your order");
+        fetchCartItems(); //Refresh the cart
+      });
+    })
+    .carth((err) => {
+      console.error("Checkout error:", err);
+    });
+}
