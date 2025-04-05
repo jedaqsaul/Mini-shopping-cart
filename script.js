@@ -25,3 +25,24 @@ function fetchProducts() {
       console.error("Error fetching products: ", err);
     });
 }
+
+function addToCart(productId) {
+  // first, get the products details by Id
+  fetch(`${BASE_URL}/products/${productId}`)
+    .then((res) => res.json())
+    .then((product) => {
+      //send the product to the cart
+      fetch(`${BASE_URL}/cart`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      })
+        .then((res) => res.json())
+        .then((cartItem) => {
+          alert(`${cartItem.name} added to cart!`);
+        });
+    })
+    .catch((err) => console.error("Error adding to cart: ", err));
+}
